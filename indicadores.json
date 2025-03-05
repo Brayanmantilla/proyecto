@@ -1,0 +1,30 @@
+[
+    {
+        "id_indicador": "SP.POP.TOTL",
+        "descripcion": "Total de poblaci\u00f3n"
+    },
+    {
+        "id_indicador": "SP.POP.GROW",
+        "descripcion": "Crecimiento anual de la poblaci\u00f3n (%)"
+    },
+    {
+        "id_indicador": "SP.URB.TOTL",
+        "descripcion": "Poblaci\u00f3n urbana"
+    },
+    {
+        "id_indicador": "SP.RUR.TOTL",
+        "descripcion": "Poblaci\u00f3n rural"
+    },
+    {
+        "id_indicador": "& C:/Users/Oficina/AppData/Local/Programs/Python/Python313/python.exe \"d:/3D Objects/PYTHON/ppp.py\"",
+        "descripcion": "& C:/Users/Oficina/AppData/Local/Programs/Python/Python313/python.exe \"d:/3D Objects/PYTHON/ppp.py\""
+    },
+    {
+        "id_indicador": "& C:/Users/Oficina/AppData/Local/Programs/Python/Python313/python.exe \"d:/3D Objects/PYTHON/ppp.py\"",
+        "descripcion": "& C:/Users/Oficina/AppData/Local/Programs/Python/Python313/python.exe \"d:/3D Objects/PYTHON/ppp.py\""
+    },
+    {
+        "id_indicador": "SP.URB.TOTU",
+        "descripcion": "poblacion desplazada"
+    }
+]

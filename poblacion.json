@@ -1,0 +1,102 @@
+[
+    {
+        "ano": 2000,
+        "pais": "India",
+        "codigo_iso3": "IND",
+        "indicador_id": "SP.POP.TOTL",
+        "descripcion": "Total de poblaci\u00f3n",
+        "valor": 1000000000,
+        "estado": "disponible",
+        "unidad": "personas"
+    },
+    {
+        "ano": 2010,
+        "pais": "India",
+        "codigo_iso3": "IND",
+        "indicador_id": "SP.POP.TOTL",
+        "descripcion": "Total de poblaci\u00f3n",
+        "valor": 1200000000,
+        "estado": "disponible",
+        "unidad": "personas"
+    },
+    {
+        "ano": 2020,
+        "pais": "India",
+        "codigo_iso3": "IND",
+        "indicador_id": "SP.POP.TOTL",
+        "descripcion": "Total de poblaci\u00f3n",
+        "valor": 1300000000,
+        "estado": "disponible",
+        "unidad": "personas"
+    },
+    {
+        "ano": 2022,
+        "pais": "India",
+        "codigo_iso3": "IND",
+        "indicador_id": "SP.POP.TOTL",
+        "descripcion": "Total de poblaci\u00f3n",
+        "valor": 1350000000,
+        "estado": "disponible",
+        "unidad": "personas"
+    },
+    {
+        "ano": 2023,
+        "pais": "India",
+        "codigo_iso3": "IND",
+        "indicador_id": "SP.POP.TOTL",
+        "descripcion": "Total de poblaci\u00f3n",
+        "valor": 1380000000,
+        "estado": "disponible",
+        "unidad": "personas"
+    },
+    {
+        "ano": 2021,
+        "pais": "India",
+        "codigo_iso3": "IND",
+        "indicador_id": "SP.POP.GROW",
+        "descripcion": "Crecimiento anual de la poblaci\u00f3n (%)",
+        "valor": 2000000.0,
+        "estado": "disponible",
+        "unidad": "20"
+    },
+    {
+        "ano": 215,
+        "pais": "Estados Unidos",
+        "codigo_iso3": "USA",
+        "indicador_id": "SP.POP.GROW",
+        "descripcion": "Crecimiento anual de la poblaci\u00f3n (%)",
+        "valor": 200000.0,
+        "estado": "disponible",
+        "unidad": "Personas"
+    },
+    {
+        "ano": 2025,
+        "pais": "Colombia",
+        "codigo_iso3": "COL",
+        "indicador_id": "SP.URB.TOTU",
+        "descripcion": "poblacion desplazada",
+        "valor": 20000000.0,
+        "estado": "disponible",
+        "unidad": "personas"
+    },
+    {
+        "ano": 2000,
+        "pais": "Cuba",
+        "codigo_iso3": "CUB",
+        "indicador_id": "SP.POP.TOTL",
+        "descripcion": "Total de poblaci\u00f3n",
+        "valor": 1200000.0,
+        "estado": "disponible",
+        "unidad": "personas"
+    },
+    {
+        "ano": 2025,
+        "pais": "Espa\u00f1a",
+        "codigo_iso3": "ESP",
+        "indicador_id": "SP.POP.TOTL",
+        "descripcion": "Total de poblaci\u00f3n",
+        "valor": 201000000.0,
+        "estado": "disponible",
+        "unidad": "personas"
+    }
+]
