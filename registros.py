@@ -22,7 +22,7 @@ def datos_poblacion_total(datos):
     return resultado
 # D. Obtener los datos de población de los últimos 10 años para todos los países.
 def poblacion_ultimos_10(datos):
-    anio_actual = 2023
+    anio_actual = 2025
     resultado = []
     for d in datos:
         if (anio_actual - 10) <= d["ano"] <= anio_actual:
@@ -30,23 +30,23 @@ def poblacion_ultimos_10(datos):
     return resultado
 # E. Total de población para India en el año 2022.
 def poblacion_por_pais_anio(datos, codigo_iso3, anio=2022):
-    for dato in datos:
-        if dato["codigo_iso3"] == codigo_iso3 and dato["ano"] == anio:
-            print(f"Población de {codigo_iso3} en el año {anio}: {dato['valor']:,.0f} habitantes")
-            return dato["valor"] 
+    for d in datos:
+        if d["codigo_iso3"] == codigo_iso3 and d["ano"] == anio:
+            print(f"Población de {codigo_iso3} en el año {anio}: {d['valor']:,.0f} habitantes")
+            return d["valor"] 
     print(f"No se encontraron datos de población para {codigo_iso3} en el año {anio}.")
     return None
 # F. Población total registrada antes del año 2000.
 def poblacion_antes_2000(datos):
-    total = sum(dato["valor"] for dato in datos if dato["ano"] < 2000)
+    total = sum(d["valor"] for d in datos if d["ano"] < 2000)
     if total:
-        print(f"Población total registrada antes del año 2000: {total:,.0f} habitantes")
+        print(f"Población total registrada antes del año 2000: {total} habitantes")
     else:
         print("No hay datos de población registrados antes del año 2000.")
     return total
 # G. Población total registrada después del año 2010.
 def poblacion_despues_2010(datos):
-    total = sum(dato["valor"] for dato in datos if dato["ano"] > 2010) 
+    total = sum(d["valor"] for d in datos if d["ano"] > 2010) 
     if total:
         print(f"Población total registrada después del año 2010: {total:,.0f} habitantes")
     else:
@@ -56,12 +56,12 @@ def poblacion_despues_2010(datos):
 def crecimiento_poblacional(datos, codigo_iso3, inicio=2010, fin=2020):
     poblacion_inicio = None
     poblacion_fin = None
-    for dato in datos:
-        if dato["codigo_iso3"] == codigo_iso3:
-            if dato["ano"] == inicio:
-                poblacion_inicio = dato["valor"]
-            elif dato["ano"] == fin:
-                poblacion_fin = dato["valor"]
+    for d in datos:
+        if d["codigo_iso3"] == codigo_iso3:
+            if d["ano"] == inicio:
+                poblacion_inicio = d["valor"]
+            elif d["ano"] == fin:
+                poblacion_fin = d["valor"]
     if poblacion_inicio is not None and poblacion_fin is not None:
         crecimiento = ((poblacion_fin - poblacion_inicio) / poblacion_inicio) * 100
         print(f"Crecimiento poblacional de {codigo_iso3} entre {inicio} y {fin}: {crecimiento:.2f}%")
@@ -71,10 +71,10 @@ def crecimiento_poblacional(datos, codigo_iso3, inicio=2010, fin=2020):
         return None
 # I. Población de India en el año 2023 (si está disponible).
 def poblacion_2023(datos, codigo_iso3):
-    for dato in datos:
-        if dato["codigo_iso3"] == codigo_iso3 and dato["ano"] == 2023:
-            print(f"Población de {codigo_iso3} en 2023: {dato['valor']} habitantes")
-            return dato["valor"]
+    for d in datos:
+        if d["codigo_iso3"] == codigo_iso3 and d["ano"] == 2023:
+            print(f"Población de {codigo_iso3} en 2023: {d['valor']} habitantes")
+            return d["valor"]
     print(f"No hay datos de población para {codigo_iso3} en 2023.")
     return None
 # J. Obtener el año con la población más baja para India.
@@ -89,9 +89,9 @@ def anio_menor_poblacion(datos, codigo_iso3):
 # K. Número de registros de población por año.
 def registros_por_anio(datos, codigo_iso3):
     conteo = {}
-    for dato in datos:
-        if dato["codigo_iso3"] == codigo_iso3:
-            conteo[dato["ano"]] = conteo.get(dato["ano"], 0) + 1
+    for d in datos:
+        if d["codigo_iso3"] == codigo_iso3:
+            conteo[d["ano"]] = conteo.get(d["ano"], 0) + 1
     print(f"Registros de población por año en {codigo_iso3}: {conteo}")
     return conteo
 # L. Países con un crecimiento poblacional mayor al 2% anual en los últimos 5 años.
@@ -113,7 +113,7 @@ def paises_crecimiento_alto(datos):
             if crecimiento_anual > 2:
                 paises_crecimiento.append((pais, crecimiento_anual))
     if paises_crecimiento:
-        print("🚀 Países con crecimiento mayor al 2% anual en los últimos 5 años:")
+        print("Países con crecimiento mayor al 2% anual en los últimos 5 años:")
         for pais, crecimiento in paises_crecimiento:
             print(f"  - {pais}: {crecimiento:.2f}% anual")
     else:
@@ -121,7 +121,7 @@ def paises_crecimiento_alto(datos):
     return paises_crecimiento
 # M. Listar los años en los que la población de India superó los 1,000 millones.
 def anios_poblacion_mayor_mil_millones(datos, codigo_iso3):
-    anios = [dato["ano"] for dato in datos if dato["codigo_iso3"] == codigo_iso3 and dato["valor"] > 1_000_000_000]
+    anios = [d["ano"] for d in datos if d["codigo_iso3"] == codigo_iso3 and d["valor"] > 1_000_000_000]
     if anios:
         print(f"Años en los que la población de {codigo_iso3} superó los 1,000 millones: {anios}")
     else:
@@ -130,7 +130,7 @@ def anios_poblacion_mayor_mil_millones(datos, codigo_iso3):
 # N. Obtener la población total registrada para todos los países en el año 2000.
 def poblacion_total_anio(datos, anio=2000):
     """Calcula la población total de todos los países en un año específico."""
-    total = sum(dato["valor"] for dato in datos if dato["ano"] == anio)
+    total = sum(d["valor"] for d in datos if d["ano"] == anio)
     if total:
         print(f"Población total mundial en el año {anio}: {total} habitantes")
     else:
@@ -139,7 +139,7 @@ def poblacion_total_anio(datos, anio=2000):
 #M. Obtener la población menos registrada para India en los últimos 20 años.
 def poblacion_mas_baja_ultimos_20_anios(datos, codigo_iso3):
     anio_actual = 2023
-    poblaciones = [(dato["ano"], dato["valor"]) for dato in datos if dato["codigo_iso3"] == codigo_iso3 and dato["ano"] >= anio_actual - 20]
+    poblaciones = [(d["ano"], d["valor"]) for d in datos if d["codigo_iso3"] == codigo_iso3 and d["ano"] >= anio_actual - 20]
     if poblaciones:
         anio_min, poblacion_min = min(poblaciones, key=lambda x: x[1])
         print(f"Población más baja de {codigo_iso3} en los últimos 20 años: {poblacion_min} habitantes en {anio_min}")
@@ -148,7 +148,7 @@ def poblacion_mas_baja_ultimos_20_anios(datos, codigo_iso3):
     return None, None
 #O. Promedio de población registrada por año para India desde 1980 hasta 2020.
 def promedio_poblacion(datos, codigo_iso3, inicio=1980, fin=2020):
-    poblaciones = [dato["valor"] for dato in datos if dato["codigo_iso3"] == codigo_iso3 and inicio <= dato["ano"] <= fin]
+    poblaciones = [d["valor"] for d in datos if d["codigo_iso3"] == codigo_iso3 and inicio <= d["ano"] <= fin]
     if poblaciones:
         promedio = sum(poblaciones) / len(poblaciones)
         print(f"Promedio de población en {codigo_iso3} entre {inicio} y {fin}: {promedio} habitantes")
@@ -157,24 +157,24 @@ def promedio_poblacion(datos, codigo_iso3, inicio=1980, fin=2020):
     return None
 #P. Cantidad de años con datos de población disponibles para India.
 def cantidad_anios_con_datos(datos, codigo_iso3):
-    anios = {dato["ano"] for dato in datos if dato["codigo_iso3"] == codigo_iso3}
+    anios = {d["ano"] for d in datos if d["codigo_iso3"] == codigo_iso3}
     print(f"{codigo_iso3} tiene datos de población en {len(anios)} años diferentes.")
     return len(anios)
 #Q. Listar los países con datos de población disponibles para cada año entre 2000 y 2023.
 def paises_con_datos_por_anio(datos, inicio=2000, fin=2023):
     datos_por_anio = {anio: set() for anio in range(inicio, fin + 1)}
-    for dato in datos:
-        if inicio <= dato["ano"] <= fin:
-            datos_por_anio[dato["ano"]].add(dato["codigo_iso3"])
+    for d in datos:
+        if inicio <= d["ano"] <= fin:
+            datos_por_anio[d["ano"]].add(d["codigo_iso3"])
     for anio, paises in datos_por_anio.items():
         print(f" Año {anio}: {len(paises)} países con datos")
     return datos_por_anio
 #R. Población total de India en 2019.
 def poblacion_2019(datos, codigo_iso3):
-    for dato in datos:
-        if dato["codigo_iso3"] == codigo_iso3 and dato["ano"] == 2019:
-            print(f"Población de {codigo_iso3} en 2019: {dato['valor']:,.0f} habitantes")
-            return dato["valor"]
+    for d in datos:
+        if d["codigo_iso3"] == codigo_iso3 and d["ano"] == 2019:
+            print(f"Población de {codigo_iso3} en 2019: {d['valor']:,.0f} habitantes")
+            return d["valor"]
     print(f"No hay datos de población para {codigo_iso3} en 2019.")
     return None
 #S. Años en los que la población de India creció más de 1 millón en comparación con el año anterior.
@@ -190,10 +190,10 @@ def anios_crecimiento_millon(datos, codigo_iso3):
 #T. Población registrada de India en cada década desde 1960.
 def poblacion_por_decada(datos, codigo_iso3):
     decadas = {decada: None for decada in range(1960, 2030, 10)}
-    for dato in datos:
-        if dato["codigo_iso3"] == codigo_iso3:
-            decada = (dato["ano"] // 10) * 10
-            decadas[decada] = dato["valor"]
+    for d in datos:
+        if d["codigo_iso3"] == codigo_iso3:
+            decada = (d["ano"] // 10) * 10
+            decadas[decada] = d["valor"]
     for decada, poblacion in decadas.items():
         if poblacion:
             print(f"{codigo_iso3} en la década de {decada}: {poblacion} habitantes")

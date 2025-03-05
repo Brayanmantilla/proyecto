@@ -45,14 +45,14 @@ if __name__ == "__main__":
     paises = leer_json(ruta_paises)
     indicadores = leer_json(ruta_indicadores) 
     while True:
-            opc=int(input("Ingrese la opción que desea realizar: \n1. Ver indicadores, paises y datos disponibles \n2. Añadir indicador \n3. Añadir pais \n4. Añadir dato \n5. Salir"))
+            opc=int(input("Ingrese la opción que desea realizar: \n1. Ver indicadores, paises y datos disponibles \n2. Consultar o Añadir indicador \n3. Consultar o Añadir pais \n4. Consultar o Añadir dato \n5. Salir"))
             if opc==1:
                 agregar_dato_usuario(ruta_datos, ruta_paises, ruta_indicadores)
             elif opc==2:
                     indicador_id = input("Ingrese el ID del indicador que desea consultar: ").upper()
                     indicador_encontrado = next((i for i in indicadores if i["id_indicador"] == indicador_id), None)
                     if indicador_encontrado:
-                        print("El indicador ya se encuentra en el registro. Puede continuar")
+                        print("/////  El indicador ya se encuentra en el registro. Puede continuar /////")
                     elif not indicador_encontrado:
                         print("**** REGISTRO NUEVO INDICADOR ****")
                         indicador_nuevo=input("Ingrese el nuevo indicador: ")
@@ -60,14 +60,13 @@ if __name__ == "__main__":
                         nuevo_indicador={"id_indicador":indicador_nuevo,"descripcion":descripcion_nuevo}
                         indicadores.append(nuevo_indicador)
                         guardar_json(ruta_indicadores, indicadores)
-                        print("Nuevo indicador agregado con éxito.")
+                        print("**** Nuevo indicador agregado con éxito. ****")
                         indicador_encontrado=nuevo_indicador
             elif opc==3:
-                    # Validar país
                     codigo_iso3 = input("\nIngrese el código ISO3 del país que desea consultar: ").upper()
                     pais_encontrado = next((p for p in paises if p["codigo_iso3"] == codigo_iso3), None)
                     if pais_encontrado:
-                        print("El país ya se encuentra en el registro. Puede continuar")
+                        print("/////  El país ya se encuentra en el registro. Puede continuar  /////")
                     elif not pais_encontrado:
                         print("**** REGISTRO NUEVO PAIS ****")
                         pais_nuevo=input("Ingrese el nombre del país a agregar: ")
@@ -76,7 +75,7 @@ if __name__ == "__main__":
                         nuevo_pais={"nombre": pais_nuevo, "codigo_iso":iso_nuevo, "codigo_iso3": iso3_nuevo}
                         paises.append(nuevo_pais)
                         guardar_json(ruta_paises, paises)
-                        print("Nuevo país agregado con éxito.")
+                        print("***** Nuevo país agregado con éxito. *****")
                         pais_encontrado=nuevo_pais
             elif opc==4:
                 ano = int(input("Año: "))
@@ -96,7 +95,7 @@ if __name__ == "__main__":
                 }
                 datos.append(nuevo_dato)  
                 guardar_json(ruta_datos, datos)
-                print("✅ Nuevo dato agregado con éxito.")
+                print("/////  Nuevo dato agregado con éxito.  /////")
             elif opc==5:
                 print("Saliendo...")
                 break
