@@ -31,7 +31,6 @@ def informe_poblacion(ruta_datos, ruta_paises):
         print("Ingrese valores numéricos válidos para los años.")
 
 def informe_crecimiento_poblacional(ruta_datos, ruta_paises):
-    # Leer datos de población y lista de países desde archivos JSON
     datos = proyecto.leer_json(ruta_datos)
     paises = proyecto.leer_json(ruta_paises)
 

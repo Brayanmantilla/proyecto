@@ -276,8 +276,6 @@ if __name__ == "__main__":
             "26. Salir\n"
             "Ingrese una opción: "
         ))
-
-    
         if opc == 1:
             datos_poblacion = poblacion_india(datos)
             print(json.dumps(datos_poblacion, indent=4, ensure_ascii=False))
