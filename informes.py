@@ -1,4 +1,4 @@
-import proyecto
+import proyecto 
 
 def informe_poblacion(ruta_datos, ruta_paises):
     datos = proyecto.leer_json(ruta_datos)
@@ -62,10 +62,10 @@ def informe_crecimiento_poblacional(ruta_datos, ruta_paises):
     print(f"**** INFORME DE CRECIMIENTO POBLACIONAL PARA {pais_encontrado['nombre']} ({codigo_iso3}) ****")
     print(f"{'Año':<10}{'Población':<20}{'Crecimiento %':<15}")
 
-    for i in range(1, len(datos_pais)):  # Comenzamos desde el segundo dato
-        año_actual = datos_pais[i]["ano"]  # Año actual
-        poblacion_actual = datos_pais[i]["valor"]  # Población en el año actual
-        poblacion_anterior = datos_pais[i - 1]["valor"]  # Población en el año anterior
+    for i in range(1, len(datos_pais)):  
+        año_actual = datos_pais[i]["ano"]  
+        poblacion_actual = datos_pais[i]["valor"]  
+        poblacion_anterior = datos_pais[i - 1]["valor"]  
 
         if poblacion_anterior == 0:
             crecimiento = 0

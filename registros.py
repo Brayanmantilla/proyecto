@@ -80,12 +80,15 @@ def poblacion_2023(datos, codigo_iso3):
 # J. Obtener el año con la población más baja para India.
 def anio_menor_poblacion(datos, codigo_iso3):
     poblaciones = [(dato["ano"], dato["valor"]) for dato in datos if dato["codigo_iso3"] == codigo_iso3]
-    if poblaciones:
-        anio_min, poblacion_min = min(poblaciones, key=lambda x: x[1])
-        print(f"Año con menor población en {codigo_iso3}: {anio_min} ({poblacion_min} habitantes)")
-        return anio_min, poblacion_min
-    print(f"No hay datos de población registrados para {codigo_iso3}.")
-    return None, None
+    if not poblaciones:
+        print(f"No hay datos de población registrados para {codigo_iso3}.")
+        return None, None
+    anio_min, poblacion_min = poblaciones[0]
+    for anio, poblacion in poblaciones:
+        if poblacion < poblacion_min:
+            anio_min, poblacion_min = anio, poblacion
+    print(f"Año con menor población en {codigo_iso3}: {anio_min} ({poblacion_min} habitantes)")
+    return anio_min, poblacion_min
 # K. Número de registros de población por año.
 def registros_por_anio(datos, codigo_iso3):
     conteo = {}
@@ -129,7 +132,6 @@ def anios_poblacion_mayor_mil_millones(datos, codigo_iso3):
     return anios
 # N. Obtener la población total registrada para todos los países en el año 2000.
 def poblacion_total_anio(datos, anio=2000):
-    """Calcula la población total de todos los países en un año específico."""
     total = sum(d["valor"] for d in datos if d["ano"] == anio)
     if total:
         print(f"Población total mundial en el año {anio}: {total} habitantes")
@@ -139,13 +141,17 @@ def poblacion_total_anio(datos, anio=2000):
 #M. Obtener la población menos registrada para India en los últimos 20 años.
 def poblacion_mas_baja_ultimos_20_anios(datos, codigo_iso3):
     anio_actual = 2023
-    poblaciones = [(d["ano"], d["valor"]) for d in datos if d["codigo_iso3"] == codigo_iso3 and d["ano"] >= anio_actual - 20]
-    if poblaciones:
-        anio_min, poblacion_min = min(poblaciones, key=lambda x: x[1])
-        print(f"Población más baja de {codigo_iso3} en los últimos 20 años: {poblacion_min} habitantes en {anio_min}")
-        return anio_min, poblacion_min
-    print(f"No hay suficientes datos de población para {codigo_iso3} en los últimos 20 años.")
-    return None, None
+    poblaciones = [(d["ano"], d["valor"]) for d in datos 
+        if d["codigo_iso3"] == codigo_iso3 and d["ano"] >= anio_actual - 20]
+    if not poblaciones:
+        print(f"No hay suficientes datos de población para {codigo_iso3} en los últimos 20 años.")
+        return None, None
+    anio_min, poblacion_min = poblaciones[0]  
+    for anio, poblacion in poblaciones:
+        if poblacion < poblacion_min:
+            anio_min, poblacion_min = anio, poblacion
+    print(f"Población más baja de {codigo_iso3} en los últimos 20 años: {poblacion_min} habitantes en {anio_min}")
+    return anio_min, poblacion_min
 #O. Promedio de población registrada por año para India desde 1980 hasta 2020.
 def promedio_poblacion(datos, codigo_iso3, inicio=1980, fin=2020):
     poblaciones = [d["valor"] for d in datos if d["codigo_iso3"] == codigo_iso3 and inicio <= d["ano"] <= fin]
@@ -212,12 +218,15 @@ def anios_sin_datos(datos, codigo_iso3, inicio=1960, fin=2023):
 #X. Año con la población más alta registrada para India.
 def anio_mayor_poblacion(datos, codigo_iso3):
     poblaciones = [(dato["ano"], dato["valor"]) for dato in datos if dato["codigo_iso3"] == codigo_iso3]
-    if poblaciones:
-        anio_max, poblacion_max = max(poblaciones, key=lambda x: x[1])
-        print(f"Año con mayor población en {codigo_iso3}: {anio_max} ({poblacion_max:,.0f} habitantes)")
-        return anio_max, poblacion_max
-    print(f"No hay datos de población registrados para {codigo_iso3}.")
-    return None, None
+    if not poblaciones:
+        print(f"No hay datos de población registrados para {codigo_iso3}.")
+        return None, None
+    anio_max, poblacion_max = poblaciones[0]
+    for anio, poblacion in poblaciones:
+        if poblacion > poblacion_max:
+            anio_max, poblacion_max = anio, poblacion
+    print(f"Año con mayor población en {codigo_iso3}: {anio_max} ({poblacion_max:,.0f} habitantes)")
+    return anio_max, poblacion_max
 #Y. Años con datos de población disponibles para más de 50 países.
 def anios_mas_de_50_paises(datos):
     conteo_anios = {}
